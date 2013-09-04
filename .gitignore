@@ -6,7 +6,8 @@
 *.ear
 
 out/
-.idea/workspace.xml
+.idea/
+*.iml
 
 # OS generated files #
 ######################
