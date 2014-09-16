@@ -35,8 +35,8 @@ public class AudiA4Test {
 
     @Test
     public void testEngineStarted(){
-        when(engine.start()).thenReturn(true);
 
+        when(engine.start()).thenReturn(1);
 
         boolean started = audiA4.startEngine();
 
@@ -47,8 +47,7 @@ public class AudiA4Test {
 
     @Test
     public void testEngineNotStarted(){
-        when(engine.start()).thenReturn(false);
-
+        when(engine.start()).thenReturn(0);
 
         boolean started = audiA4.startEngine();
 
@@ -60,7 +59,20 @@ public class AudiA4Test {
     }
 
     @Test
-    public void cantStartIfThereAreNoKeys() {
+    public void testEngineNotStartedWhenError(){
+        when(engine.start()).thenReturn(-1);
+
+        boolean started = audiA4.startEngine();
+
+        assertFalse(started);
+        assertFalse(audiA4.isEngineStarted());
+        verify(engine).start();
+
+
+    }
+
+    @Test
+    public void cantStartIfThereAreNoKeys(){
         audiA4.setCarKeys(false);
         boolean started = audiA4.startEngine();
 

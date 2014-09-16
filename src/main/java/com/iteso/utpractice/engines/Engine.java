@@ -9,5 +9,5 @@ package com.iteso.utpractice.engines;
  */
 public interface Engine {
 
-    public boolean start();
+    public int start();
 }
