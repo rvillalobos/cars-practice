@@ -1,7 +1,5 @@
 package com.iteso.utpractice.engines.impl;
 
-import com.iteso.utpractice.engines.Engine;
-
 /**
  * Created with IntelliJ IDEA.
  * User: rvillalobos
@@ -9,7 +7,7 @@ import com.iteso.utpractice.engines.Engine;
  * Time: 1:06 PM
  * To change this template use File | Settings | File Templates.
  */
-public class TFSI4 implements Engine {
+public class TFSI4 implements com.iteso.utpractice.engines.iEngine {
     private int gas;
 
     public int getGas() {

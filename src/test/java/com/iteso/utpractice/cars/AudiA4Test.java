@@ -6,7 +6,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
-import com.iteso.utpractice.engines.Engine;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -22,13 +21,13 @@ import static org.junit.Assert.assertFalse;
  */
 public class AudiA4Test {
 
-    private Engine engine;
+    private com.iteso.utpractice.engines.iEngine engine;
     private Car audiA4;
 
     @Before
     public void setUp(){
 
-        engine = mock(Engine.class);
+        engine = mock(com.iteso.utpractice.engines.iEngine.class);
         audiA4 = new AudiA4(engine);
         audiA4.setCarKeys(true);
     }

@@ -1,8 +1,6 @@
 package com.iteso.utpractice.cars;
 
 import com.iteso.utpractice.Car;
-import com.iteso.utpractice.engines.Engine;
-import com.iteso.utpractice.engines.impl.TFSI4;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,7 +11,7 @@ import com.iteso.utpractice.engines.impl.TFSI4;
  */
 public class AudiA4 extends Car {
 
-    public AudiA4(Engine engine) {
+    public AudiA4(com.iteso.utpractice.engines.iEngine engine) {
         super(engine);
     }
 

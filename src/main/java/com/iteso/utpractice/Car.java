@@ -1,7 +1,5 @@
 package com.iteso.utpractice;
 
-import com.iteso.utpractice.engines.Engine;
-
 /**
  * Created with IntelliJ IDEA.
  * User: rvillalobos
@@ -13,9 +11,9 @@ public abstract class Car {
     private boolean lights = false;
     private boolean carKeys = false;
     private boolean engineStarted = false;
-    private Engine engine;
+    private com.iteso.utpractice.engines.iEngine engine;
 
-    public Car(Engine engine) {
+    public Car(com.iteso.utpractice.engines.iEngine engine) {
         this.engine = engine;
     }
 
@@ -38,11 +36,11 @@ public abstract class Car {
         this.carKeys = carKeys;
     }
 
-    public Engine getEngine() {
+    public com.iteso.utpractice.engines.iEngine getEngine() {
         return engine;
     }
 
-    public void setEngine(Engine engine) {
+    public void setEngine(com.iteso.utpractice.engines.iEngine engine) {
         this.engine = engine;
     }
 
