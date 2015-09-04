@@ -2,7 +2,7 @@ package com.iteso.utpractice.engines.impl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-
+import static org.mockito.Mockito.*;
 
 import java.util.Calendar;
 
@@ -19,12 +19,16 @@ public class TFSI4Test {
 
     @Before
     public void setUp(){
-
+        
         myEngine = new TFSI4();
+
     }
 
     @Test
     public void testEngineStartTrue(){
+        myEngine.start();
+
+
 
         assertTrue(false);
 
