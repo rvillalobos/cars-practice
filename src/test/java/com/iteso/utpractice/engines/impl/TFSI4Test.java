@@ -15,31 +15,42 @@ import static org.junit.Assert.assertFalse;
  * Created by rvillalobos on 9/15/14.
  */
 public class TFSI4Test {
-    com.iteso.utpractice.engines.iEngine myEngine;
+
+    private com.iteso.utpractice.engines.iEngine myEngine;
 
     @Before
     public void setUp(){
-
+        private int gas;
         myEngine = new TFSI4();
     }
 
     @Test
     public void testEngineStartTrue(){
 
-        assertTrue(false);
+        gas = 10;
+        myEngine.setGas(gas);
+        boolean started = myEngine.start();
+        assertTrue(started);
 
     }
 
     @Test
     public void testEngineStartFalse(){
 
-        assertFalse(true);
+        gas = 0;
+        myEngine.setGas(gas);
+        boolean started = myEngine.start();
+        assertFalse(started);
 
     }
 
     @Test
     public void testEngineStartInvalid(){
-        assertFalse(true);
+
+        gas = -10;
+        myEngine.setGas(gas);
+        boolean started = myEngine.start();
+        assertFalse(started);
 
     }
 
