@@ -2,7 +2,6 @@ package com.iteso.utpractice.engines.impl;
 import com.iteso.utpractice.engines.iEngine;
 import com.iteso.utpractice.gastanks.iGasTank;
 
-
 /**
  * Created with IntelliJ IDEA.
  * User: rvillalobos
@@ -19,27 +18,27 @@ public class TFSI4 implements iEngine {
     }
 
     public void setGas(float gas) {
-        getGasTank.addGass(gas);
+        getGasTank().addGass(gas);
     }
 
     @Override
     public int start(){
         float currentGas = getGas();
         if (currentGas > 0)
-         return 1;
+            return 1;
         else if (currentGas == 0)
-         return 0;
+            return 0;
         else {
             System.out.println("Impossible to get gas lecture");
             return -1;
         }
     }
 
-    public iGasTank getGasTankk(){
+    public iGasTank getGasTank() {
         return gasTank;
     }
 
-    public void setGasTank(iGasTank gasTank){
+    public void setGasTank(iGasTank gasTank) {
         this.gasTank = gasTank;
     }
 }

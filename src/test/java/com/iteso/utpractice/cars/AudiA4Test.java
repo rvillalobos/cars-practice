@@ -1,16 +1,12 @@
 package com.iteso.utpractice.cars;
-
-
 import com.iteso.utpractice.Car;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,6 +15,7 @@ import static org.junit.Assert.assertFalse;
  * Time: 3:36 PM
  * To change this template use File | Settings | File Templates.
  */
+
 public class AudiA4Test {
 
     private com.iteso.utpractice.engines.iEngine engine;
@@ -34,14 +31,12 @@ public class AudiA4Test {
 
     @Test
     public void testEngineStarted(){
-
         when(engine.start()).thenReturn(1);
 
         boolean started = audiA4.startEngine();
 
         assertTrue(started);
         assertTrue(audiA4.isEngineStarted());
-
     }
 
     @Test
@@ -53,8 +48,6 @@ public class AudiA4Test {
         assertFalse(started);
         assertFalse(audiA4.isEngineStarted());
         verify(engine).start();
-
-
     }
 
     @Test
@@ -66,8 +59,6 @@ public class AudiA4Test {
         assertFalse(started);
         assertFalse(audiA4.isEngineStarted());
         verify(engine).start();
-
-
     }
 
     @Test
