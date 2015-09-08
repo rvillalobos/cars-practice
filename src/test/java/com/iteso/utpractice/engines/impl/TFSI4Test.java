@@ -16,42 +16,37 @@ import static org.junit.Assert.assertFalse;
  */
 public class TFSI4Test {
 
-    private com.iteso.utpractice.engines.iEngine myEngine;
+    TSFI4 myEngine;
+    int starterd;
 
     @Before
     public void setUp(){
-        private int gas;
         myEngine = new TFSI4();
+        started = 0;
     }
 
     @Test
     public void testEngineStartTrue(){
 
-        gas = 10;
-        myEngine.setGas(gas);
-        boolean started = myEngine.start();
-        assertTrue(started);
-
+        myEngine.setGas(10);
+        started = myEngine.start();
+        assertEquals(1,started);
     }
 
     @Test
     public void testEngineStartFalse(){
 
-        gas = 0;
-        myEngine.setGas(gas);
-        boolean started = myEngine.start();
-        assertFalse(started);
-
+        myEngine.setGas(0);
+        started = myEngine.start();
+        assertEquals(0,started);
     }
 
     @Test
     public void testEngineStartInvalid(){
 
-        gas = -10;
-        myEngine.setGas(gas);
-        boolean started = myEngine.start();
-        assertFalse(started);
-
+        myEngine.setGas(-10);
+        started = myEngine.start();
+        assertEquals(-1,started);
     }
 
 }
