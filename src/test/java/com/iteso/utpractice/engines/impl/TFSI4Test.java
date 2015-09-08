@@ -1,4 +1,5 @@
 package com.iteso.utpractice.engines.impl;
+import com.iteso.utpractice.gasTanks.iGasTank;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,46 +16,43 @@ import static org.junit.Assert.assertFalse;
  * Created by rvillalobos on 9/15/14.
  */
 public class TFSI4Test {
-    com.iteso.utpractice.engines.iEngine myEngine;
-    com.iteso.utpractice.engines.iGasTank gasTank;
+    TFSI4 myEngine;
+    iGasTank myTank;
+    int started;
 
     @Before
     public void setUp(){
-        gasTank = mock(com.iteso.utpractice.engines.iGasTank.class);
+        myTank = mock(iGasTank.class);
         myEngine = new TFSI4();
+        myEngine.setGasTank(myTank);
+
+        started = 0;
     }
 
     @Test
     public void testEngineStartTrue(){
-        when(myEngine.start()).thenReturn(1);
+        when(myTank.getGasLevel()).thenReturn((float) 10);
 
-        int started = myEngine.start();
+        started = myEngine.start();
 
-        if(started == 1)
-            assertTrue(true);
-
+        assertEquals(1, started);
     }
 
     @Test
     public void testEngineStartFalse(){
-        when(myEngine.start()).thenReturn(0);
+        when(myTank.getGasLevel()).thenReturn((float) 0);
 
-        int started = myEngine.start();
+        started = myEngine.start();
 
-        if(started == 0)
-            assertTrue(false);
-
+        assertEquals(0, started);
     }
 
     @Test
     public void testEngineStartInvalid(){
-        when(myEngine.start()).thenReturn(-1);
+        when(myTank.getGasLevel()).thenReturn((float) -1);
+        started = myEngine.start();
 
-        int started = myEngine.start();
-
-        if(started == -1)
-        assertFalse(false);
-
+        assertEquals(-1, started);
     }
 
 }
