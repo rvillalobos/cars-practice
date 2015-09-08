@@ -9,6 +9,7 @@ import java.util.Calendar;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.mockito.Mockito.*;
 
 
 /**
@@ -16,35 +17,35 @@ import static org.junit.Assert.assertFalse;
  */
 public class TFSI4Test {
 
-    TSFI4 myEngine;
+    TFSI4 MyEngine;
+    iGasTank myTank;
     int starterd;
 
     @Before
     public void setUp(){
         myEngine = new TFSI4();
+        myTank = mock(iGasTank.class);
+        myEngine.setGastTank(myTank);
         started = 0;
     }
 
     @Test
     public void testEngineStartTrue(){
-
-        myEngine.setGas(10);
+        when(myTank.getGasLevel()).thenReturn((float) 10);
         started = myEngine.start();
         assertEquals(1,started);
     }
 
     @Test
     public void testEngineStartFalse(){
-
-        myEngine.setGas(0);
+        when(myTank.getGasLevel()).thenReturn((float) 0);
         started = myEngine.start();
         assertEquals(0,started);
     }
 
     @Test
     public void testEngineStartInvalid(){
-
-        myEngine.setGas(-10);
+        when(myTank.getGasLevel()).thenReturn((float) -10);
         started = myEngine.start();
         assertEquals(-1,started);
     }
