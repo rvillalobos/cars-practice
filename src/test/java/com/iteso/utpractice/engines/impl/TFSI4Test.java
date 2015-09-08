@@ -30,7 +30,7 @@ public class TFSI4Test {
     }
 
     @Test
-    public void testEngineStartTrue(){
+    public void testEngineStartTrue() {
         when(myTank.getGasLevel()).thenReturn((float) 10);
 
         started = myEngine.start();
