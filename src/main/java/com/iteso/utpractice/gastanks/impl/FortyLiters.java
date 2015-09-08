@@ -22,13 +22,17 @@ public class FortyLiters implements iGasTank {
     @Override
     public void addGass(float liters) {
         float total;
-        if(getGasLevel() < getTankCapacity()){
+        if(getGasLevel() < getTankCapacity() && liters >=0){
             total = getGasLevel() + liters;
             if(total > getTankCapacity()){
-                addGass(getTankCapacity()-getGasLevel());
+                setGasLevel(getTankCapacity());
             }
             else
-                addGass(liters);
+                setGasLevel(getGasLevel() + liters);
         }
+    }
+
+    public void setGasLevel(float gasLevel) {
+        this.gasLevel = gasLevel;
     }
 }
