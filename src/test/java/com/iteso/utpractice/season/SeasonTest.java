@@ -48,13 +48,13 @@ public class SeasonTest {
         month = 3;
 
         result = mySeason.whichSeason(day, month);
-        assertEquals(result, "Spring");
+        assertEquals("Spring", result);
 
         day = 20;
         month = 6;
 
         result = mySeason.whichSeason(day, month);
-        assertEquals(result, "Spring");
+        assertEquals("Spring", result);
     }
 
     @Test
@@ -64,13 +64,13 @@ public class SeasonTest {
         month = 6;
 
         result = mySeason.whichSeason(day, month);
-        assertEquals(result, "Summer");
+        assertEquals("Summer", result);
 
         day = 20;
         month = 9;
 
         result = mySeason.whichSeason(day, month);
-        assertEquals(result, "Summer");
+        assertEquals("Summer", result);
     }
 
     @Test
