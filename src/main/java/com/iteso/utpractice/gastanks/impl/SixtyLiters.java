@@ -1,6 +1,8 @@
+package com.iteso.utpractice.gastanks.impl;
+
 public class FortyLiters implements iGasTank{
     private float gasLevel;
-    private final int MAX_GAS_LEVEL = 40;
+    private final int MAX_GAS_LEVEL = 60;
 
     @Override
     public float getGasLevel(){
