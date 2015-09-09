@@ -24,12 +24,18 @@ public class FortyLiters implements iGasTank {
     public void addGas(float Liters) {
     float total;
         if(getGasLevel() < getTankCapacity()){
+
             total= getGasLevel() + Liters;
             if(total > getTankCapacity()){
                 setGasLevel(getTankCapacity());
             }
-            else
-                setGasLevel(getGasLevel() + Liters);
+            else{
+                if(Liters >=0)
+                    setGasLevel(getGasLevel() + Liters);
+                else
+                    setGasLevel(getGasLevel());
+
+            }
 
         }
     }
