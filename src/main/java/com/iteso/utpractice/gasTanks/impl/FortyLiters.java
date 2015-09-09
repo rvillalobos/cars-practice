@@ -27,9 +27,14 @@ public class FortyLiters implements iGasTank {
             if (total > getTankCapacity()) {
                 setGasLevel(getTankCapacity());
             } else {
-                setGasLevel(getGasLevel() + liters);
+                if(liters >= 0) {
+                    setGasLevel(getGasLevel() + liters);
+                } else {
+                    setGasLevel(getGasLevel());
+                }
             }
         }
+
     }
 
     public void setGasLevel(float gasLevel) {
