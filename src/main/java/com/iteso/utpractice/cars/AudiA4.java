@@ -1,6 +1,7 @@
 package com.iteso.utpractice.cars;
 
 import com.iteso.utpractice.Car;
+import com.iteso.utpractice.engines.iEngine;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +12,7 @@ import com.iteso.utpractice.Car;
  */
 public class AudiA4 extends Car {
 
-    public AudiA4(com.iteso.utpractice.engines.iEngine engine) {
+    public AudiA4(iEngine engine) {
         super(engine);
     }
 

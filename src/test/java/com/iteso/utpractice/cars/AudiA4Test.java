@@ -1,5 +1,6 @@
 package com.iteso.utpractice.cars;
 
+import com.iteso.utpractice.engines.iEngine;
 
 import com.iteso.utpractice.Car;
 import org.junit.After;
@@ -21,13 +22,13 @@ import static org.junit.Assert.assertFalse;
  */
 public class AudiA4Test {
 
-    private com.iteso.utpractice.engines.iEngine engine;
+    private iEngine engine;
     private Car audiA4;
 
     @Before
     public void setUp(){
 
-        engine = mock(com.iteso.utpractice.engines.iEngine.class);
+        engine = mock(iEngine.class);
         audiA4 = new AudiA4(engine);
         audiA4.setCarKeys(true);
     }
