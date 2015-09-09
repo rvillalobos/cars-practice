@@ -33,7 +33,7 @@ public class TodayTest {
 
         day = myCalendar.get(Calendar.DAY_OF_WEEK);
 
-       boolean result = myToday.isToday(day);
+        boolean result = myToday.isToday(day);
 
         assertTrue(result);
 

@@ -1,10 +1,9 @@
 package com.iteso.utpractice.engines.impl;
-import org.junit.After;
+import com.iteso.utpractice.gastanks.iGasTank;
 import org.junit.Before;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
-
-import java.util.Calendar;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -15,32 +14,37 @@ import static org.junit.Assert.assertFalse;
  * Created by rvillalobos on 9/15/14.
  */
 public class TFSI4Test {
-    com.iteso.utpractice.engines.iEngine myEngine;
+    TFSI4 myEngine;
+    iGasTank myTank;
+    int started;
 
     @Before
     public void setUp(){
-
         myEngine = new TFSI4();
+        myTank = mock(iGasTank.class);
+        myEngine.setGasTank(myTank);
+        started = 0;
     }
 
     @Test
     public void testEngineStartTrue(){
-
-        assertTrue(false);
-
+        when(myTank.getGasLevel()).thenReturn((float)10);
+        started = myEngine.start();
+        assertEquals(1, started);
     }
 
     @Test
     public void testEngineStartFalse(){
-
-        assertFalse(true);
-
+        when(myTank.getGasLevel()).thenReturn((float)0);
+        started = myEngine.start();
+        assertEquals(0, started);
     }
 
     @Test
     public void testEngineStartInvalid(){
-        assertFalse(true);
-
+        when(myTank.getGasLevel()).thenReturn((float) -1);
+        started = myEngine.start();
+        assertEquals(-1, started);
     }
 
 }
