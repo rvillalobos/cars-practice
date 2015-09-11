@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
-
+import com.iteso.utpractice.engines.iEngine;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,7 +27,7 @@ public class AudiA4Test {
     @Before
     public void setUp(){
 
-        engine = mock(com.iteso.utpractice.engines.iEngine.class);
+        engine = mock(iEngine.class); // Es una clase falsa con el mock
         audiA4 = new AudiA4(engine);
         audiA4.setCarKeys(true);
     }
@@ -35,7 +35,8 @@ public class AudiA4Test {
     @Test
     public void testEngineStarted(){
 
-        when(engine.start()).thenReturn(1);
+        when(engine.start()).thenReturn(1); // cuando se ejecute el metodo start que siempre retorne 1, funcion de mockkito
+        // Este metodo
 
         boolean started = audiA4.startEngine();
 
@@ -50,9 +51,10 @@ public class AudiA4Test {
 
         boolean started = audiA4.startEngine();
 
-        assertFalse(started);
+        assertFalse(started); //verifica que esa variable sea falta con el assertFalse
         assertFalse(audiA4.isEngineStarted());
-        verify(engine).start();
+        verify(engine).start(); // verify es de mockito, que verifique se haya llamada a la funcion .start() porque en la clase
+    //        AUDiA4 hhay 2 opciones que te devuelve falso
 
 
     }
@@ -76,7 +78,7 @@ public class AudiA4Test {
         boolean started = audiA4.startEngine();
 
         assertFalse(started);
-        verify(engine, never()).start();
+        verify(engine, never()).start(); // verfica que nunca se haya llamado el metodo .start()
     }
 
     @After
