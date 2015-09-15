@@ -1,10 +1,10 @@
 package com.iteso.utpractice.airConditioner;
-import com.iteso.utpractice.airConditioner.airConditioner;
+import com.iteso.utpractice.airConditioner.AirConditioner;
 
 /**
  * Created by Sacrp on 9/15/15.
  */
-public class airConditioner
+public class AirConditioner
 {
     private double idealTemperature;
     private double insideTemperature;
@@ -32,7 +32,6 @@ public class airConditioner
         return insideTemperature;
     }
     public double getCurrentConditionerTemperature() { return currentConditionerTemperature; }
-
     public double finalTemperature()
     {
         return getCurrentConditionerTemperature() + getInsideTemperature();
@@ -41,16 +40,19 @@ public class airConditioner
 
     public void adjustAirTemperature(double idealT, double insideT, double currentA)
     {
-        if(insideT == idealT)
+        double totalT = finalTemperature();
+
+
+        if(totalT == idealT)
             return;
 
         else
         {
             double counter = 0;
-            double temp = insideT;
+            double temp = totalT;
             double newAirT = 0;
 
-            if (insideT > idealT)
+            if (totalT > idealT)
             {
 
                 while (temp > idealT)
@@ -62,7 +64,7 @@ public class airConditioner
                 setCurrentConditionerTemperature(newAirT);
                 return;
             }
-            else if(insideT < idealT)
+            else if(totalT < idealT)
             {
                 while (temp < idealT)
                 {
