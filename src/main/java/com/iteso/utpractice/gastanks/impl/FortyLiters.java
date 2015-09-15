@@ -21,8 +21,6 @@ public class FortyLiters implements iGasTank {
         return MAX_GAS_LEVEL;
     }
 
-
-
     public void setGasLevel(float liters){
         this.gasLevel = gasLevel;
     }

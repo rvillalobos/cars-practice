@@ -22,7 +22,7 @@ public class FortyLitersTest{
 
 
     @Test
-    public void testAddSomeGas(){
+    public void testAddGas(){
         myTank.addGas(10);
         myGas = myTank.getGasLevel();
         assertEquals((double)38, myGas, 0);
@@ -32,7 +32,7 @@ public class FortyLitersTest{
 
 
     @Test
-    public void testAddToFullTank(){
+    public void testFullTank(){
         myTank.addGas(10);
         myGas = myTank.getGasLevel();
         assertEquals((double)40, myGas, 0);
@@ -40,7 +40,7 @@ public class FortyLitersTest{
 
 
     @Test
-    public void testAddALotOfGas(){
+    public void testLotOfGas(){
         myTank.addGas(35);
         myGas = myTank.getGasLevel();
         assertEquals((double)40, myGas, 0);
@@ -48,7 +48,7 @@ public class FortyLitersTest{
 
 
     @Test
-    public void testAddNegativeGas(){
+    public void testNegativeGas(){
         myTank.addGas(-1);
         myGas = myTank.getGasLevel();
         assertEquals((double) 35, myGas, 0);
