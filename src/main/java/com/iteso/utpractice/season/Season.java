@@ -5,9 +5,11 @@ package com.iteso.utpractice.season;
  */
 public class Season {
     public String whichSeason(int day, int month) {
-    	if(month <= 0 || month >= 32)
+    	if(month <= 0 || month >= 13)
     		return "invalid";
     	if (month % 1 != 0)
+    		return "invalid";
+    	if(month == 2 && day >=29)
     		return "invalid";
         return null;
     }
