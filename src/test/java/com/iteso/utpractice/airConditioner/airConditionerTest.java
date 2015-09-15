@@ -1,4 +1,6 @@
 package com.iteso.utpractice.airConditioner;
+import com.iteso.utpractice.airConditioner.airConditioner;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,8 +14,6 @@ public class airConditionerTest
     //TEMPERATURE SHOULD ALWAYS BE BETWEEN 18 AND 22 DEGREES
 
     airConditioner myConditioner;
-
-
     double insideTemperature; //current temperature inside car
     double currentConditionerTemperature;
     double idealTemperature;
@@ -25,7 +25,7 @@ public class airConditionerTest
         myConditioner = new airConditioner();
         currentConditionerTemperature = 0;
         idealTemperature = 21.5;
-        setIdealTemperature(idealTemperature);
+        myConditioner.setIdealTemperature(idealTemperature);
     }
 
     // TEST WHEN TEMPERATURE IS ALREADY ON POINT
@@ -33,11 +33,6 @@ public class airConditionerTest
     public void testOnPoint()
     {
         insideTemperature  = 21.5;
-
-        setInsideTemperature(insideTemperature);
-        adjustAirTemperature(getIdealTemperature(), getInsideTemperature(), getCurrentConditionerTemperature());
-        currentAirTemperature = getAirTemperature();
-        assertEquals(idealTemperature, finalTemperature(), 0.005);
     }
 
 
@@ -46,11 +41,6 @@ public class airConditionerTest
     public void testTooHot()
     {
         insideTemperature = 30;
-
-        setInsideTemperature(insideTemperature);
-        adjustAirTemperature(getIdealTemperature(), getInsideTemperature(), getCurrentConditionerTemperature());
-        currentAirTemperature = getAirTemperature();
-        assertEquals(idealTemperature, finalTemperature(), 0.005);
     }
 
     //TEST WHEN TEMPERATURE IS TOO COLD
@@ -59,10 +49,14 @@ public class airConditionerTest
     public void testTooCold()
     {
         insideTemperature = 15;
-        
-        setInsideTemperature(insideTemperature);
-        adjustAirTemperature(getIdealTemperature(), getInsideTemperature(), getCurrentConditionerTemperature());
-        currentAirTemperature = getAirTemperature();
-        assertEquals(idealTemperature, finalTemperature(), 0.005);
     }
+
+    @After
+    public void testResults()
+    {
+        myConditioner.setInsideTemperature(insideTemperature);
+        myConditioner.adjustAirTemperature(myConditioner.getIdealTemperature(), myConditioner.getInsideTemperature(), myConditioner.getCurrentConditionerTemperature());
+        assertEquals(idealTemperature, myConditioner.finalTemperature(), 0.005);
+    }
+
 }

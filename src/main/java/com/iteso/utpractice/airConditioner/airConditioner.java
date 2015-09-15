@@ -1,4 +1,5 @@
 package com.iteso.utpractice.airConditioner;
+import com.iteso.utpractice.airConditioner.airConditioner;
 
 /**
  * Created by Sacrp on 9/15/15.
@@ -9,7 +10,7 @@ public class airConditioner
     private double insideTemperature;
     private double currentConditionerTemperature;
 
-    public void SetIdealTemperature(double iT)
+    public void setIdealTemperature(double iT)
     {
         idealTemperature = iT;
     }
@@ -52,28 +53,19 @@ public class airConditioner
             setCurrentConditionerTemperature(getCurrentConditionerTemperature() + counter);
         }
 
-        if(insideT > idealT)
+        if(insideT < idealT)
         {
             double counter = 0;
             double temp = insideT;
 
             while(temp != idealT)
             {
-                counter --;
-                temp--;
+                counter ++;
+                temp++;
             }
 
             setCurrentConditionerTemperature(getCurrentConditionerTemperature() + counter);
         }
-
-
-
+        return;
     }
-
-
-
-
-
-
-
 }
