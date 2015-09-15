@@ -5,7 +5,7 @@ package com.iteso.utpractice.season;
  */
 public class Season {
     public String whichSeason(int day, int month) {
-<<<<<<< HEAD
+
       if(month <= 0 || month >= 13)
        return "month must be between 1 and 12";
 
@@ -55,14 +55,6 @@ public class Season {
 
 }
 
-=======
-    	if(month <= 0 || month >= 13)
-    		return "invalid";
-    	if (month % 1 != 0)
-    		return "invalid";
-    	if(month == 2 && day >=29)
-    		return "invalid";
->>>>>>> 797b096bc39792a98491d861cd8f6dfc14d9c6b6
         return null;
     }
 }
