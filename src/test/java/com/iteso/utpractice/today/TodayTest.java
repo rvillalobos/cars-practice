@@ -3,6 +3,8 @@ package com.iteso.utpractice.today;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.swing.*;
 import java.util.Calendar;
 import static org.mockito.Mockito.*;
 
@@ -31,9 +33,7 @@ public class TodayTest {
     @Test
     public void testIsTodayTrue(){
 
-        day = myCalendar.get(Calendar.DAY_OF_WEEK);
-
-       boolean result = myToday.isToday(day);
+       boolean result = myToday.isToday(3);
 
         assertTrue(result);
 
@@ -41,10 +41,7 @@ public class TodayTest {
     @Test
     public void testIsTodayFalse(){
 
-        day = myCalendar.get(Calendar.DAY_OF_WEEK);
-        day += 2;
-
-        boolean result = myToday.isToday(day);
+        boolean result = myToday.isToday(5);
 
         assertFalse(result);
 
@@ -53,9 +50,7 @@ public class TodayTest {
     @Test
     public void testIsTodayInvalid(){
 
-        day = 9;
-
-        boolean result = myToday.isToday(day);
+        boolean result = myToday.isToday(9);
 
         assertFalse(result);
 

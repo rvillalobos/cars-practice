@@ -27,16 +27,14 @@ public class SeasonTest {
     @Test
     public void testWinter(){
 
-        day = 22;
-        month = 12;
 
-        result = mySeason.whichSeason(day, month);
+
+        result = mySeason.whichSeason(22, 12);
         assertEquals(result, "Winter");
 
-        day = 20;
-        month = 3;
 
-        result = mySeason.whichSeason(day, month);
+
+        result = mySeason.whichSeason(20, 3);
         assertEquals(result, "Winter");
 
     }
@@ -47,23 +45,22 @@ public class SeasonTest {
         day = 22;
         month = 3;
 
-        result = mySeason.whichSeason(day, month);
+        result = mySeason.whichSeason(22, 3);
         assertEquals(result, "Spring");
 
         day = 20;
         month = 6;
 
-        result = mySeason.whichSeason(day, month);
+        result = mySeason.whichSeason(20, 6);
         assertEquals(result, "Spring");
     }
 
     @Test
     public void testSummer(){
 
-        day = 22;
-        month = 6;
 
-        result = mySeason.whichSeason(day, month);
+
+        result = mySeason.whichSeason(22, 6);
         assertEquals(result, "Summer");
 
         day = 20;
@@ -86,35 +83,28 @@ public class SeasonTest {
         month = 12;
 
         result = mySeason.whichSeason(day, month);
-        assertEquals(result, "Autumn");
+        assertEquals("Autumn", result);
     }
 
 
     @Test
     public void testInvalid(){
 
-        day = 0;
-        month = 0;
 
-        result = mySeason.whichSeason(day,month);
+
+        result = mySeason.whichSeason(0,0);
         assertEquals(result, "Invalid");
 
-        day = 32;
-        month = 12;
 
-        result = mySeason.whichSeason(day, month);
+        result = mySeason.whichSeason(32, 12);
         assertEquals(result, "Invalid");
 
-        day = 2;
-        month = 13;
 
-        result = mySeason.whichSeason(day, month);
+        result = mySeason.whichSeason(2, 13);
         assertEquals(result, "Invalid");
 
-        day = 30;
-        month = 2;
 
-        result = mySeason.whichSeason(day, month);
+        result = mySeason.whichSeason(30, 2);
         assertEquals(result, "Invalid");
     }
 
