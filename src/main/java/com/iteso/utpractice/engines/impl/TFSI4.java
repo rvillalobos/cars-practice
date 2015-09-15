@@ -1,5 +1,7 @@
 package com.iteso.utpractice.engines.impl;
 
+import com.iteso.utpractice.gas.iGasTank;
+
 /**
  * Created with IntelliJ IDEA.
  * User: rvillalobos
@@ -8,19 +10,20 @@ package com.iteso.utpractice.engines.impl;
  * To change this template use File | Settings | File Templates.
  */
 public class TFSI4 implements com.iteso.utpractice.engines.iEngine {
-    private int gas;
+    private iGasTank gasTank;
 
-    public int getGas() {
-        return gas;
+    public float getGas() {
+        float myGasLevel = gasTank.getGasLevel();
+        return myGasLevel;
     }
 
-    public void setGas(int gas) {
-        this.gas = gas;
+    public void setGas(float gas) {
+        getGasTank().addGas(gas);
     }
 
     @Override
     public int start(){
-        int currentGas = getGas();
+        float currentGas = getGas();
         if (currentGas > 0)
          return 1;
         else if (currentGas == 0)
@@ -29,5 +32,13 @@ public class TFSI4 implements com.iteso.utpractice.engines.iEngine {
             System.out.println("Impossible to get gas lecture");
             return -1;
         }
+    }
+
+    public iGasTank getGasTank(){
+       return gasTank;
+    }
+
+    public void setGasTank(iGasTank gasTank){
+        this.gasTank = gasTank;
     }
 }
