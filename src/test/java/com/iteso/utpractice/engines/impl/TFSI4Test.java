@@ -1,6 +1,4 @@
 package com.iteso.utpractice.engines.impl;
-import com.iteso.utpractice.engines.Engine;
-import com.iteso.utpractice.today.Today;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +15,7 @@ import static org.junit.Assert.assertFalse;
  * Created by rvillalobos on 9/15/14.
  */
 public class TFSI4Test {
-    Engine myEngine;
+    com.iteso.utpractice.engines.iEngine myEngine;
 
     @Before
     public void setUp(){
