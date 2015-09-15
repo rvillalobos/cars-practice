@@ -9,7 +9,7 @@ public class Season {
             return "Invalid";
         if(month == 2 && day >28)
             return "Invalid";
-        if((month == 2 || month == 4 || month == 6 || month == 9 || month == 11) && (day > 30))
+        if((month == 4 || month == 6 || month == 9 || month == 11) && (day > 30))
             return "Invalid";
         switch (month){
             case 1: return "Winter";
