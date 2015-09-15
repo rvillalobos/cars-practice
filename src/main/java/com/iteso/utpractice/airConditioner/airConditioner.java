@@ -18,7 +18,11 @@ public class airConditioner
     {
         insideTemperature = iT;
     }
-    public void setCurrentConditionerTemperature(double iT) { currentConditionerTemperature = iT; }
+    public void setCurrentConditionerTemperature(double iT)
+    {
+        currentConditionerTemperature = iT;
+    }
+
     public double getIdealTemperature()
     {
         return idealTemperature;
@@ -28,6 +32,7 @@ public class airConditioner
         return insideTemperature;
     }
     public double getCurrentConditionerTemperature() { return currentConditionerTemperature; }
+
     public double finalTemperature()
     {
         return getCurrentConditionerTemperature() + getInsideTemperature();
@@ -39,33 +44,35 @@ public class airConditioner
         if(insideT == idealT)
             return;
 
-        if(insideT > idealT)
+        else
         {
             double counter = 0;
             double temp = insideT;
+            double newAirT = 0;
 
-            while(temp != idealT)
+            if (insideT > idealT)
             {
-                counter --;
-                temp--;
+
+                while (temp > idealT)
+                {
+                    counter = counter + 0.1;
+                    temp = temp - 0.1;
+                }
+                newAirT = getCurrentConditionerTemperature() - counter;
+                setCurrentConditionerTemperature(newAirT);
+                return;
             }
-
-            setCurrentConditionerTemperature(getCurrentConditionerTemperature() + counter);
-        }
-
-        if(insideT < idealT)
-        {
-            double counter = 0;
-            double temp = insideT;
-
-            while(temp != idealT)
+            else if(insideT < idealT)
             {
-                counter ++;
-                temp++;
+                while (temp < idealT)
+                {
+                    counter += 0.1;
+                    temp += 0.1;
+                }
+                newAirT = getCurrentConditionerTemperature() + counter;
+                setCurrentConditionerTemperature(newAirT);
+                return;
             }
-
-            setCurrentConditionerTemperature(getCurrentConditionerTemperature() + counter);
         }
-        return;
     }
 }
