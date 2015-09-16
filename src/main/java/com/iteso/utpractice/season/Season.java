@@ -7,9 +7,7 @@ public class Season {
     String result = "Chino";
     public String whichSeason(int day, int month) {
         // Invalid
-        if(day < 1 && month < 1)
-            return "Invalid";
-        else if(month > 12)
+        if(day < 1 && month < 1 || month > 12)
             return "Invalid";
         else if(day > 31 && month == 1 || day > 31 && month == 3 || day > 31 && month == 5 || day > 31 && month == 7 || day > 31 && month == 8 || day > 31 && month == 10 || day > 31 && month == 12)
             return "Invalid";
