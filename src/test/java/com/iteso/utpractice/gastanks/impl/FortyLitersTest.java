@@ -18,34 +18,84 @@ import static org.mockito.Mockito.when;
 public class FortyLitersTest {
 
     float started;
+    float NivelGas;
+    float Gas;
     FortyLiters FLT = new FortyLiters();
 
     @Before
     public void setUp(){
+
+        NivelGas = 0;
+        Gas=0;
         started=0;
     }
 
     @Test
-    public void testTankOverCapacity(){
+     public void testTankOverCapacity(){
 
-        FLT.setGasLevel(0);
-        FLT.addGas(50);
+        //En caso de que si quieran agregan mas litros que la capacidad, el nivel del gas sera igual a la maxima capacidad
+
+        NivelGas = 0;
+        Gas=50;
+
+        FLT.setGasLevel(NivelGas);
+        FLT.addGas(Gas);
         started = FLT.getGasLevel();
-            if(started <= FLT.getGasCapacity())
-                    assertTrue(true);
-        else
-                assertFalse(true);
+
+        if(started == FLT.getGasCapacity())
+            assertTrue(true);
+
 
     }
 
     @Test
-    public void testTankInvalidad(){
+    public void testTank(){
 
-        FLT.setGasLevel(10);
-        FLT.addGas(-10);
+        // En caso de que se agreguen los litros adecuados y el nivel del gas adecuado.
+        NivelGas = 10;
+        Gas=20;
+
+        FLT.setGasLevel(NivelGas);
+        FLT.addGas(Gas);
+
         started = FLT.getGasLevel();
-        if(started == 0)
+        if(started <= FLT.getGasCapacity())
             assertTrue(true);
+
+    }
+
+
+    @Test
+    public void testTankInvalid(){
+
+        //En caso de se quiera agregar litros negativos, no se agregara nada y el nivel del gas se quedara igual.
+
+        float NivelGas = 10;
+        float Gas = -10;
+
+         FLT.setGasLevel(NivelGas);
+         FLT.addGas(Gas);
+         started = FLT.getGasLevel();
+
+        if(NivelGas == started)
+            assertTrue(true);
+
+    }
+
+    @Test
+    public void testTanksetGasInvalid(){
+
+        //En caso de se quiera agregar litros negativos, no se agregara nada y el nivel del gas se quedara igual.
+
+        float NivelGas = 60;
+        float Gas = 20;
+
+        FLT.setGasLevel(NivelGas);
+        FLT.addGas(Gas);
+        started = FLT.getGasLevel();
+
+            if(started == FLT.getGasCapacity())
+                assertTrue(true);
 
     }
 

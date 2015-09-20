@@ -21,32 +21,32 @@ public class SixtyLiters implements iGastTank {
     }
 
     @Override
-    public void addGas(float Liters) { // 1 -- que el gas se mayor o igual que el getTank capacity
+    public void addGas(float Liters) {
 
         float total;
 
             if(Liters > 0)
             {
-                if(getGasLevel() < getGasCapacity()){ // cuando sea mayor que la capacidad, cuando sea menor
+                if(getGasLevel() < getGasCapacity()){  // Se compara que el nivel del Gas actual no sea mayor a la capacidad
                     total = getGasLevel() + Liters;
 
-                    if(total > getGasCapacity()) { // para cuando sea mayor que la capacidad y menor
-                        setGasLevel(getGasCapacity());
+                    if(total > getGasCapacity()) {  // Si lo que se quiere agregar es mayor a la capacidad, se guarda el nivel
+                        setGasLevel(MAX_GAS_LEVEL); // hasta la capacidad Maxima
                     }
-                    else // para este
+                    else //Si paso todas las validaciones, se agregan los litros al tanque de forma normal
                         setGasLevel(getGasLevel()+ Liters);
 
                 }
             }
 
-        else
-                setGasLevel(getGasLevel());
+        else // si es mayor, se pone la capacidad maxima al tanque
+                setGasLevel(MAX_GAS_LEVEL);
 
 
     }
 
     public void setGasLevel(float gasLevel){ // Aqui tambien hice modificaciones para que no aceptara numeros menores que 0
-        if(gasLevel > 0)
+        if(gasLevel > 0)                    //En caso de que fuera un numero menor, el nivel del gas se pone como 0
         this.gasLevel = gasLevel;
 
         else
