@@ -1,4 +1,6 @@
 package com.iteso.utpractice.engines.impl;
+import com.iteso.utpractice.gasTanks.iGasTank;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,19 +10,31 @@ package com.iteso.utpractice.engines.impl;
  * To change this template use File | Settings | File Templates.
  */
 public class TFSI4 implements com.iteso.utpractice.engines.iEngine {
-    private int gas;
+    //esta clase es del tipo iengine, osea que implementa todos los metodos
+    //de iengine
+    //private int gas; //parte 1 d ela practica
 
-    public int getGas() {
-        return gas;
-    }
+    private iGasTank gasTank;
 
-    public void setGas(int gas) {
-        this.gas = gas;
+    //cambiamos int por float
+    public float  getGas() {
+
+        // return gas; //P1
+        float myGasLevel=gasTank.gestGasLevel();
+        return myGasLevel;
+     }
+
+    public void setGas(float gas) {
+      //P1  this.gas = gas;
+        getGasTank().addGass(gas);
+
     }
 
     @Override
     public int start(){
-        int currentGas = getGas();
+
+
+      float currentGas = getGas();
         if (currentGas > 0)
          return 1;
         else if (currentGas == 0)
@@ -29,5 +43,13 @@ public class TFSI4 implements com.iteso.utpractice.engines.iEngine {
             System.out.println("Impossible to get gas lecture");
             return -1;
         }
+    }
+
+    public iGasTank getGasTank(){
+        return  gasTank;
+    }
+
+    public void setGasTank (iGasTank gasTank){
+        this.gasTank = gasTank;
     }
 }

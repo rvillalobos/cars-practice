@@ -28,13 +28,14 @@ public class AudiA4Test {
     public void setUp(){
 
         engine = mock(com.iteso.utpractice.engines.iEngine.class);
+        // engine=mock(iEngine.class);
         audiA4 = new AudiA4(engine);
         audiA4.setCarKeys(true);
     }
 
     @Test
     public void testEngineStarted(){
-
+        //abajo dice, cuando mi mock mande llamar su metodo start regresa lo del parentesis
         when(engine.start()).thenReturn(1);
 
         boolean started = audiA4.startEngine();
@@ -46,13 +47,18 @@ public class AudiA4Test {
 
     @Test
     public void testEngineNotStarted(){
+        //abajo dice, cuando mi mock mande llamar su metodo start regresa lo del parentesis
         when(engine.start()).thenReturn(0);
 
         boolean started = audiA4.startEngine();
 
+
+        //assertFalse verifica que de false
         assertFalse(started);
         assertFalse(audiA4.isEngineStarted());
         verify(engine).start();
+        //verify es un metodo de mockit, verifica que se halla llamado ese metodo y devolvio el valor
+        // y no halla dado false por otro motivo
 
 
     }
@@ -77,6 +83,7 @@ public class AudiA4Test {
 
         assertFalse(started);
         verify(engine, never()).start();
+        //verifica que nunca (never()) se halla llamado al metodo start
     }
 
     @After
